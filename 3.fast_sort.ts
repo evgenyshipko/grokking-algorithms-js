@@ -1,6 +1,6 @@
 // fast sort
 // computation complexity: O(n*log(n))
-// memory complexity: O(n^2)
+// memory complexity: ?
 import { strict as assert } from 'node:assert';
 export const fastSort = (arr: number[]) => {
     if (arr.length < 2){
