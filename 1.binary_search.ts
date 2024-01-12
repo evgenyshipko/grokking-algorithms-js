@@ -1,5 +1,6 @@
 // binary search
-// complexity log2(n)
+// computation complexity: O(log(n))
+// memory complexity: O(1) + O(n) = O(n)
 import { strict as assert } from 'node:assert';
 const binarySearch = (arr: number[], item: number) => {
 
