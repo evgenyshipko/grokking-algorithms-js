@@ -63,14 +63,14 @@ const dijkstra = (
     parents: Record<string, string>
 ) => {
     const proceed = []
-    let node = findLowestCostNode(costs, proceed)
+    let node = findLowestCostNode(costs, proceed) // find node with lowes cost
     while (node){
-        const cost = costs[node]
-        const neighbours = graph[node]
+        const cost = costs[node] // path cost of moving to the node
+        const neighbours = graph[node] // neighbours of the node
         for (const neighbour of Object.keys(neighbours)){
-            const newCost = cost + neighbours[neighbour]
+            const newCost = cost + neighbours[neighbour] // path cost of moving to neighbour through the node
             if (costs[neighbour] > newCost){
-                costs[neighbour] = newCost
+                costs[neighbour] = newCost // if founded cheaper path refresh costs and parents
                 parents[neighbour] = node
             }
         }
