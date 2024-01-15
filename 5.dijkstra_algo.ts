@@ -1,5 +1,6 @@
 // Dijkstra algorithm
 // computational complexity O(n^2)
+// memory complexity O(n)
 
 const graph = {
     'start':{
@@ -28,7 +29,7 @@ const parents = {
 }
 
 const findLowestCostNode = (costs: Record<string, number>, proceed: Array<string>) => {
-    const nodes = Object.keys(costs)
+    const nodes = Object.keys(costs) // избавиться от выделения памяти на маасив ключей
     let lowestCost = Infinity
     let lowestNode = null
     for (const node of nodes){

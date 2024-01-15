@@ -1,5 +1,6 @@
 // graph wide search
 // computational complexity: O(quantity of ribs + quantity of peaks)
+// memory complexity: O(quantity of peaks)
 
 import { strict as assert } from 'node:assert';
 
@@ -42,3 +43,5 @@ assert.equal(wideSearch('you', graph, isAnswer), true)
 assert.equal(wideSearch('alice', graph, isAnswer), false)
 assert.equal(wideSearch('claire', graph, isAnswer), true)
 assert.equal(wideSearch('1111', graph, isAnswer), false)
+
+//TODO: реализовать также поиск в глубину (то же самое, но с помощью стека)

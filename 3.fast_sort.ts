@@ -1,6 +1,6 @@
-// fast sort
+// quick sort
 // computation complexity: O(n*log(n))
-// memory complexity: ?
+// memory complexity: O(n*log(n))
 import { strict as assert } from 'node:assert';
 export const fastSort = (arr: number[]) => {
     if (arr.length < 2){
@@ -14,6 +14,4 @@ export const fastSort = (arr: number[]) => {
 
 assert.deepEqual(fastSort([9,4,7,1,3,2,8,0,5,6]), [0,1,2,3,4,5,6,7,8,9])
 
-
-
-
+//TODO: heap sort - разобрать (работа с индексами)

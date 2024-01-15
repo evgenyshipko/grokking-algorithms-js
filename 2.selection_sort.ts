@@ -1,6 +1,6 @@
 // selection sort
 // computation complexity: O(n^2)
-// memory complexity: O(n) + O(n) = O(n)
+// memory complexity: O(n)
 
 import { strict as assert } from 'node:assert';
 const findSmallestIndex = (arr: number[]) => {
