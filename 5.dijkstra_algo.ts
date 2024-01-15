@@ -29,10 +29,9 @@ const parents = {
 }
 
 const findLowestCostNode = (costs: Record<string, number>, proceed: Array<string>) => {
-    const nodes = Object.keys(costs) // избавиться от выделения памяти на маасив ключей
     let lowestCost = Infinity
     let lowestNode = null
-    for (const node of nodes){
+    for (const node in costs){
         const cost = costs[node]
         if (!proceed.includes(node) && cost < lowestCost){
             lowestCost = cost
@@ -68,7 +67,7 @@ const dijkstra = (
     while (node){
         const cost = costs[node] // path cost of moving to the node
         const neighbours = graph[node] // neighbours of the node
-        for (const neighbour of Object.keys(neighbours)){
+        for (const neighbour in neighbours){
             const newCost = cost + neighbours[neighbour] // path cost of moving to neighbour through the node
             if (costs[neighbour] > newCost){
                 costs[neighbour] = newCost // if founded cheaper path refresh costs and parents
