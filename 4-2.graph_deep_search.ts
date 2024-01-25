@@ -1,8 +1,8 @@
-// graph wide search
+// deep wide search
 // computational complexity: O(quantity of ribs + quantity of peaks)
 // memory complexity: O(quantity of peaks)
 
-// обходим сначала смежные вершины, а потом их детей (в ширину)
+// обходим каджую ветвь в глубину. в поиске в ширишу использовали очередь, тут используем стек
 
 import { strict as assert } from 'node:assert';
 
@@ -19,31 +19,29 @@ const graph: Record<string, string[]> = {
 
 const isAnswer = (name: string) => name === 'thom'
 
-const wideSearch = (
+const deepSearch = (
     startPoint: string,
     graph: Record<string, string[]>,
     isAnswer: (name: string) => boolean
 ) => {
-    const queue = graph[startPoint]
+    const stack = graph[startPoint]
 
     const usedPoints = [startPoint]
 
-    while (queue?.length > 0){
-        const point = queue.shift()
+    while (stack?.length > 0){
+        const point = stack.pop()
         if (isAnswer(point)){
             return true
         }
         if (!usedPoints.includes(point)){
             usedPoints.push(point)
-            queue.push(...graph[point])
+            stack.push(...graph[point])
         }
     }
     return false
 }
 
-assert.equal(wideSearch('you', graph, isAnswer), true)
-assert.equal(wideSearch('alice', graph, isAnswer), false)
-assert.equal(wideSearch('claire', graph, isAnswer), true)
-assert.equal(wideSearch('1111', graph, isAnswer), false)
-
-//TODO: реализовать также поиск в глубину (то же самое, но с помощью стека)
+assert.equal(deepSearch('you', graph, isAnswer), true)
+assert.equal(deepSearch('alice', graph, isAnswer), false)
+assert.equal(deepSearch('claire', graph, isAnswer), true)
+assert.equal(deepSearch('1111', graph, isAnswer), false)
